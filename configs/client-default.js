@@ -21,6 +21,7 @@ module.exports = function(options) {
 
     var workspaceDir = options.workspaceDir;
     var debug = options.debug !== undefined ? options.debug : false;
+    
     var collab = options.collab;
     var packaging = options.packaging;
     var staticPrefix = options.staticPrefix;
@@ -98,6 +99,10 @@ module.exports = function(options) {
         },
         {
             packagePath: "plugins/c9.ide.plugins/market"
+        },
+        {
+            packagePath: "plugins/c9.ide.plugins/test",
+            staticPrefix: staticPrefix + "/plugins/c9.ide.plugins"
         },
         
         // VFS
@@ -240,6 +245,7 @@ module.exports = function(options) {
         },
         "plugins/c9.ide.ui/widgets.tree",
         "plugins/c9.ide.ui/widgets.datagrid",
+        "plugins/c9.ide.ui/widgets.terminal",
         "plugins/c9.ide.ui/focus",
         "plugins/c9.ide.ui/lib_apf",
         
@@ -306,14 +312,6 @@ module.exports = function(options) {
         "plugins/c9.ide.language.generic/generic",
         "plugins/c9.ide.language.css/css",
         "plugins/c9.ide.language.html/html",
-        "plugins/ethergit.solidity.language/solidity",
-        "plugins/ethergit.solidity.compiler/compiler",
-        "plugins/ethergit.ethereum.sandbox/sandbox",
-        "plugins/ethergit.ethereum.sandbox/sandbox_panel",
-        "plugins/ethergit.ethereum.sandbox/transactions_dialog",
-        "plugins/ethergit.ethereum.sandbox/transaction_dialog",
-        "plugins/ethergit.ethereum.sandbox/contract_dialog",
-        "plugins/ethergit.ethereum.sandbox/idle_detector",
         "plugins/c9.ide.language.javascript/javascript",
         "plugins/c9.ide.language.javascript.immediate/immediate",
         "plugins/c9.ide.language.javascript.infer/jsinfer",
@@ -687,6 +685,15 @@ module.exports = function(options) {
             packagePath: "plugins/c9.ide.collab/notifications/bubble",
             staticPrefix: staticPrefix + "/plugins/c9.ide.collab/notifications"
         },
+        // Ethergit plugins
+        "plugins/ethergit.solidity.language/solidity",
+        "plugins/ethergit.solidity.compiler/compiler",
+        "plugins/ethergit.ethereum.sandbox/sandbox",
+        "plugins/ethergit.ethereum.sandbox/sandbox_panel",
+        "plugins/ethergit.ethereum.sandbox/transactions_dialog",
+        "plugins/ethergit.ethereum.sandbox/transaction_dialog",
+        "plugins/ethergit.ethereum.sandbox/contract_dialog",
+        "plugins/ethergit.ethereum.sandbox/idle_detector"
     ];
     
     if (packaging || !devel) {
